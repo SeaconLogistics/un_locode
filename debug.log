@@ -1,0 +1,4 @@
+# Logfile created on 2013-11-12 14:10:48 +0100 by logger.rb/36483
+D, [2013-11-12T14:18:24.946578 #12430] DEBUG -- :   [1m[36m (1.1ms)[0m  [1mCREATE TABLE "countries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "country_code" varchar(255)) [0m
+D, [2013-11-12T14:18:24.948119 #12430] DEBUG -- :   [1m[35m (0.9ms)[0m  CREATE TABLE "cities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "city_code" varchar(255), "full_name" varchar(255), "full_name_without_diacritics" varchar(255), "subdivision" varchar(255), "function_classifier" varchar(255), "status" varchar(255), "date" date, "iata_code" varchar(255), "coordinates" varchar(255), "country_id" integer) 
+D, [2013-11-12T14:18:24.949447 #12430] DEBUG -- :   [1m[36m (0.8ms)[0m  [1mCREATE TABLE "functions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "funciton_id" varchar(255)) [0m
