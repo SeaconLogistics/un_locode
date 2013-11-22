@@ -1,13 +1,13 @@
 require 'csv'
 require 'pry'
 require 'yaml'
+require_relative 'db'
 require_relative '../lib/un_locode'
-require_relative 'schema.rb'
 
 class LocodeDataUpdate
 
   def self.parse
-    reset_db
+    UnLocode::DB.new.reset
     parse_locodes
   end
 
@@ -94,13 +94,6 @@ class LocodeDataUpdate
     location_attributes.merge!(function_attr).merge!(name_attr)
 
     UnLocode::Locode.create(location_attributes)
-  end
-
-  def self.reset_db
-    File.delete(UnLocode::DB.database_name) if File.exists?(UnLocode::DB.database_name)
-    ActiveRecord::Base.configurations = UnLocode::DB.config
-    ActiveRecord::Base.establish_connection 'un_locode'
-    Schema.new.change
   end
 
   def self.country_row?(row)

@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry', '~> 0.9.12.3'
   spec.add_development_dependency 'activerecord', '~> 4.0.1'
   spec.add_development_dependency 'sqlite3', '~> 1.3.8'
+  spec.add_development_dependency 'rspec', '~> 2.14.1'
 end

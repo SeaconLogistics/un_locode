@@ -1,5 +1,5 @@
 module UnLocode
-  class Country < ActiveRecord::Base
+  class Country < BaseRecord
     has_many :locodes
   end
 end
