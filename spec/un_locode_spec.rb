@@ -35,6 +35,23 @@ describe UnLocode::Locode do
 
     end
 
-  end
+    context 'retrieving locodes by name and function' do
+      let!(:port) { UnLocode::Locode.create(name: 'Eindhoven', port: true) }
+      let!(:rail_terminal) { UnLocode::Locode.create(name: 'Eindhoven', rail_terminal: true) }
 
+      context 'with supported functions' do
+        subject { UnLocode::Locode.find_by_name_and_function(search_term, :port) }
+        let(:search_term) { port.name }
+
+        its(:first) { should eql(port) }
+        its(:count) { should eql(1) }
+      end
+
+      context 'with unsupported function' do
+        it 'raises an error' do
+          expect{UnLocode::Locode.find_by_name_and_function(search_term, :derp)}.to raise_error
+        end
+      end
+    end
+  end
 end
