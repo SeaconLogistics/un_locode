@@ -1,24 +1,27 @@
 module UnLocode
+  FUNCTIONS = [:port,
+               :rail_terminal,
+               :road_terminal,
+               :airport,
+               :postal_exchange_office,
+               :inland_clearance_depot,
+               :fixed_transport_functions,
+               :border_crossing_function].freeze
+
   class Locode < BaseRecord
     belongs_to :country
 
-    module Scopes
-
-      def find_by_name name, limit = 10
-
-      end
-
-      # search_string - The string that will be used in the LOCODE search.
-      # function - Integer or :B that specifies the function of the location
-      # limit - Integer to specify how many locations you want
-      def find_by_name_and_function name, function, limit = 10
-        return [] unless search_string.is_a?(String)
-        return [] unless function.to_s =~ /^[1-7]{1}|:B{1}$/
-
-
-      end
-
+    def self.find_by_fuzzy_name name, limit = 10
+      where('name like ? or
+             name_wo_diacritics like ? or
+             alternative_name like ? or
+             alternative_name_wo_diacritics like ?',
+            "%#{name}%", "%#{name}%", "%#{name}%", "%#{name}%").limit(limit)
     end
-    extend Scopes
+
+    def self.find_by_name_and_function name, function, limit = 10
+      raise "Unsupported Locode Function! Should be one of #{UnLocode::FUNCTIONS.join(' ')}." unless UnLocode::FUNCTIONS.include?(function)
+      find_by_fuzzy_name(name).where(function => true).limit(limit)
+    end
   end
 end
