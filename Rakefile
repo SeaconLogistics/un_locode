@@ -1,9 +1,10 @@
-require "bundler/gem_tasks"
+require 'bundler/gem_tasks'
+require './data/locode_data_update'
+require 'benchmark'
 
-desc "Update the datasource of the gem from csv files"
+desc 'Update the datasource of the gem from csv files'
 task :dataupdate do
-  require './data/locode_data_update'
-  puts "updating data"
-  LocodeDataUpdate.new.parse
-  puts "end of data update"
+  puts 'updating data'
+  puts Benchmark.measure { LocodeDataUpdate.parse }
+  puts 'end of data update'
 end

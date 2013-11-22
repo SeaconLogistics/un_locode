@@ -2,32 +2,35 @@ class Schema < ActiveRecord::Migration
 
   def change
     create_table :countries do |t|
+      t.string :code
       t.string :name
-      t.string :country_code
     end
 
-    create_table :places do |t|
+    create_table :locodes do |t|
+      t.string :change_marker
+      t.integer :country_id
       t.string :city_code
-      t.string :full_name
-      t.string :full_name_without_diacritics
-      t.string :subdivision
-      t.string :function_classifier
+      t.string :name
+      t.string :name_wo_diacritics
+      t.string :alternative_name
+      t.string :alternative_name_wo_diacritics
+      t.string :sub_div
+      t.boolean :port
+      t.boolean :rail_terminal
+      t.boolean :road_terminal
+      t.boolean :airport
+      t.boolean :postal_exchange_office
+      t.boolean :inland_clearance_depot
+      t.boolean :fixed_transport_functions
+      t.boolean :border_crossing_function
       t.string :status
       t.date :date
-      t.string :iata_code
+      t.string :iata
       t.string :coordinates
-      t.integer :country_id
+      t.string :remarks
     end
 
-    create_table :functions do |t|
-      t.string :name
-      t.string :funciton_id
-    end
-
-    create_table :places_functions do |t|
-      t.string :place_id
-      t.string :funciton_id
-    end
+    add_index(:locodes, [:country_id, :city_code, :change_marker])
   end
 end
 

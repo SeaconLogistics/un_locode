@@ -6,7 +6,7 @@ module UnLocode
 
     def self.config
       {
-        'un_locode'  => {
+        'un_locode' => {
           'adapter' => 'sqlite3',
           'database' => database_name
         }
