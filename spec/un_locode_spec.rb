@@ -33,6 +33,13 @@ describe UnLocode::Locode do
         end
       end
 
+      context 'case insensitive names' do
+        let(:search_term) { city.name.downcase }
+
+        its(:first) { should eql(city) }
+        its(:count) { should eql(1) }
+      end
+
     end
 
     context 'retrieving locodes by name and function' do
