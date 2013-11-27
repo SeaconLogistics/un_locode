@@ -60,6 +60,35 @@ describe UnLocode::Locode do
         end
       end
     end
+
+    describe 'retrieves locodes for' do
+      let!(:port) { UnLocode::Locode.create(name: 'Eindhoven', port: true) }
+      let!(:airport) { UnLocode::Locode.create(name: 'Eindhoven', airport: true) }
+
+      subject { UnLocode::Locode.find_by_function(function) }
+
+      context 'ports function' do
+        let(:function) { :port }
+
+        its(:first) { should eql(port) }
+        its(:count) { should eql(1) }
+        it { should_not include airport }
+      end
+
+      context 'airports function' do
+        let(:function) { :airport }
+
+        its(:first) { should eql(airport) }
+        its(:count) { should eql(1) }
+        it { should_not include port }
+      end
+
+      context 'unsupported function' do
+        it 'raises an error' do
+          expect { UnLocode::Locode.find_by_function(:derp) }.to raise_error
+        end
+      end
+    end
   end
 
   describe 'as_json' do
@@ -73,4 +102,3 @@ describe UnLocode::Locode do
     it { should_not have_key('id') }
   end
 end
-
