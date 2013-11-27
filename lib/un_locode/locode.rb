@@ -25,8 +25,7 @@ module UnLocode
     end
 
     def self.find_by_name_and_function name, function, limit = 10
-      raise "Unsupported Locode Function! Should be one of #{UnLocode::FUNCTIONS.join(' ')}." unless UnLocode::FUNCTIONS.include?(function)
-      find_by_fuzzy_name(name).where(function => true).limit(limit)
+      find_by_fuzzy_name(name).find_by_function(function, limit)
     end
 
     def as_json options = {}
