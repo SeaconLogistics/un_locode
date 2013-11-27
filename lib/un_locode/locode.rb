@@ -25,7 +25,7 @@ module UnLocode
     end
 
     def as_json options = {}
-      super options.merge(include: [:country])
+      super(options.merge!(except: [:id, :country_id])).merge('country' => country.as_json)
     end
   end
 end

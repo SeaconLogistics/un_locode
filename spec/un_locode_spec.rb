@@ -49,9 +49,21 @@ describe UnLocode::Locode do
 
       context 'with unsupported function' do
         it 'raises an error' do
-          expect{UnLocode::Locode.find_by_name_and_function(search_term, :derp)}.to raise_error
+          expect { UnLocode::Locode.find_by_name_and_function(search_term, :derp) }.to raise_error
         end
       end
     end
   end
+
+  describe 'as_json' do
+    let!(:country) { UnLocode::Country.create name: 'Belgium', code: 'BE' }
+    let!(:location) { UnLocode::Locode.create name: 'Eindhoven', port: true, country: country }
+
+    subject { location.as_json }
+
+    its(['country']) { should eql({'code' => 'BE', 'name' => 'Belgium'}) }
+    it { should_not have_key('country_id') }
+    it { should_not have_key('id') }
+  end
 end
+
