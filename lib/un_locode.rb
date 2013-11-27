@@ -2,7 +2,7 @@ require 'active_record'
 require_relative '../data/db'
 
 module UnLocode
-  UnLocode::DB.new().connect_to_db
+  UnLocode::DB.new().connect_to_db unless ENV['ENV'] == 'test'
 end
 
 require 'un_locode/base_record'
