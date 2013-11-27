@@ -53,6 +53,11 @@ Like above you can limit the query result.
  - :border_crossing_function
  
  You can find more explaination of the functions over [here](http://www.unece.org/fileadmin/DAM/cefact/locode/Service/LocodeColumn.htm)
+ 
+## TODO
+- add locode method to location (also export with as_json)
+- add tests for limit's
+- add find_by_locode method 
 
 ## Contributing
 
