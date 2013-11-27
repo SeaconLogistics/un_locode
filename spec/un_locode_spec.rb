@@ -42,7 +42,7 @@ describe UnLocode::Locode do
 
     end
 
-    context 'retrieving locodes by name and function' do
+    describe 'retrieving locodes by name and function' do
       let!(:port) { UnLocode::Locode.create(name: 'Eindhoven', port: true) }
       let!(:rail_terminal) { UnLocode::Locode.create(name: 'Eindhoven', rail_terminal: true) }
 
