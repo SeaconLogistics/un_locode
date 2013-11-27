@@ -23,5 +23,9 @@ module UnLocode
       raise "Unsupported Locode Function! Should be one of #{UnLocode::FUNCTIONS.join(' ')}." unless UnLocode::FUNCTIONS.include?(function)
       find_by_fuzzy_name(name).where(function => true).limit(limit)
     end
+
+    def as_json options = {}
+      super(options.merge!(except: [:id, :country_id])).merge('country' => country.as_json)
+    end
   end
 end

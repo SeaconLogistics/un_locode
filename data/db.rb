@@ -1,10 +1,9 @@
-require 'sqlite3'
 require_relative 'schema.rb'
 
 module UnLocode
   class DB
     def initialize(name = 'db.sqlite')
-      @database_name = File.expand_path(name.downcase, __FILE__)
+      @database_name = File.expand_path(name.downcase, File.dirname(__FILE__))
     end
 
     def reset
@@ -15,6 +14,7 @@ module UnLocode
 
     def connect_to_db
       ActiveRecord::Base.configurations.merge!(config)
+
       @connection ||= ActiveRecord::Base.establish_connection('un_locode')
     end
 

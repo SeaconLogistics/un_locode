@@ -1,3 +1,5 @@
+ENV['ENV'] ||= 'test'
+
 require 'pry'
 require 'active_record'
 require_relative '../data/db'
