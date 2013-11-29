@@ -57,7 +57,8 @@ Like above you can limit the query result.
 ## TODO
 - add locode method to location (also export with as_json)
 - add tests for limit's
-- add find_by_locode method 
+- add find_by_locode method
+- use connectionpool for connection management
 
 ## Contributing
 
