@@ -1,5 +1,8 @@
 # Locode
 
+[![Build Status](https://travis-ci.org/kabisaict/un_locode.png)](https://travis-ci.org/kabisaict/un_locode)
+[![Gem Version](https://badge.fury.io/rb/un_locode.png)](http://badge.fury.io/rb/un_locode)
+
 The un_locode gem gives you the ability to lookup UN/LOCODE codes. You can read more about the UN/LOCODE specifications here: [wiki](http://en.wikipedia.org/wiki/UN/LOCODE) and [UNECE](http://www.unece.org/fileadmin/DAM/cefact/locode/Service/LocodeColumn.htm).
 
 All data used by this gem has been taken from the *UN Centre for Trade Facilitation and E-business* official website. **No guarantees for the accuracy or up-to-dateness are given.**
@@ -54,11 +57,12 @@ Like above you can limit the query result.
  
  You can find more explaination of the functions over [here](http://www.unece.org/fileadmin/DAM/cefact/locode/Service/LocodeColumn.htm)
  
-## TODO
+## TODO's
 - add locode method to location (also export with as_json)
 - add tests for limit's
 - add find_by_locode method
 - use connectionpool for connection management
+- make logging configurable option
 
 ## Contributing
 
