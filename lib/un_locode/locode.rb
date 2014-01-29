@@ -28,6 +28,12 @@ module UnLocode
       find_by_fuzzy_name(name).find_by_function(function, limit)
     end
 
+    def self.find_by_locode(locode)
+      locode = locode.split(' ')
+      includes(:country).where(city_code: locode.last)
+        .where(countries: { code: locode.first }).first
+    end
+
     def as_json options = {}
       super(options.merge!(except: [:id, :country_id])).merge('country' => country.as_json)
     end

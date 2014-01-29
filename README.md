@@ -40,6 +40,11 @@ Like above you can limit the query result.
         UnLocode::Locode.find_by_name_and_function('US', :port)
         #=> ActiveRecord::Relation [#<UnLocode::Locode name: "Abu Musa", ... >, #<UnLocode::Locode name: "Mussafah",...>, ...
     
+- **find_by_locode**: Return Locode object based on locode string. String needs to be in format `NL VEN`. You can access country code using `#country.code`.
+
+        UnLocode::Locode.find_by_locode('NL VEN')
+        => #<UnLocode::Locode id: 65419, country_id: 165, city_code: "VEN", name: "Venlo">
+
 - **find_by_function**: Find all locations for a certain function.You can find a list of possible functions @ UnLocode::FUNCTIONS. Like all find methods, the default limit is 10 but can be specified to your own needs.
 
         UnLocode::Locode.find_by_function(:port, 2)
@@ -60,7 +65,6 @@ Like above you can limit the query result.
 ## TODO's
 - add locode method to location (also export with as_json)
 - add tests for limit's
-- add find_by_locode method
 - use connectionpool for connection management
 - make logging configurable option
 
