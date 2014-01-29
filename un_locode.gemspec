@@ -6,8 +6,8 @@ require 'un_locode/version'
 Gem::Specification.new do |spec|
   spec.name = 'un_locode'
   spec.version = UnLocode::VERSION
-  spec.authors = ['Michel de Graaf', 'Rui Salgado', 'Niels Stevens']
-  spec.email = ['michel@kabisa.nl', 'rui.salgado@kabisa.nl', 'niels@kabisa.nl']
+  spec.authors = ['Michel de Graaf', 'Rui Salgado', 'Niels Stevens', 'Jean Mertz']
+  spec.email = ['michel@kabisa.nl', 'rui.salgado@kabisa.nl', 'niels@kabisa.nl', 'jean@kabisa.nl']
   spec.description = %q{The Locode gem gives you the ability to lookup UN/LOCODE codes.}
   spec.summary = %q{The Locode gem gives you the ability to lookup UN/LOCODE codes.}
   spec.homepage = 'https://github.com/kabisaict/un_locode'
