@@ -89,6 +89,19 @@ describe UnLocode::Locode do
         end
       end
     end
+
+    describe 'retrieving country by locode' do
+      let!(:country) { UnLocode::Country.create name: 'NETHERLANDS', code: 'NL' }
+      let!(:location) { UnLocode::Locode.create name: 'Venlo', city_code: 'VEN', country: country }
+
+      context 'with supported functions' do
+        subject { UnLocode::Locode.find_by_locode(search_term) }
+        let(:search_term) { 'NL VEN' }
+
+        its(:name) { should eql('Venlo') }
+        its(:country) { should eql(country) }
+      end
+    end
   end
 
   describe 'as_json' do
