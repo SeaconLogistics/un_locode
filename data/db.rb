@@ -15,7 +15,7 @@ module UnLocode
     def connect_to_db
       ActiveRecord::Base.configurations.merge!(config)
 
-      @connection ||= ActiveRecord::Base.establish_connection('un_locode')
+      @connection ||= ActiveRecord::Base.establish_connection(:un_locode)
     end
 
     private

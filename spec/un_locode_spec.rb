@@ -56,7 +56,7 @@ describe UnLocode::Locode do
 
       context 'with unsupported function' do
         it 'raises an error' do
-          expect { UnLocode::Locode.find_by_name_and_function(search_term, :derp) }.to raise_error
+          expect { UnLocode::Locode.find_by_name_and_function(search_term, :derp) }.to raise_error(NameError)
         end
       end
     end
@@ -85,7 +85,7 @@ describe UnLocode::Locode do
 
       context 'unsupported function' do
         it 'raises an error' do
-          expect { UnLocode::Locode.find_by_function(:derp) }.to raise_error
+          expect { UnLocode::Locode.find_by_function(:derp) }.to raise_error(RuntimeError)
         end
       end
     end

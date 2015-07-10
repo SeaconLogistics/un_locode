@@ -6,8 +6,8 @@ require 'un_locode/version'
 Gem::Specification.new do |spec|
   spec.name = 'un_locode'
   spec.version = UnLocode::VERSION
-  spec.authors = ['Michel de Graaf', 'Rui Salgado', 'Niels Stevens', 'Jean Mertz']
-  spec.email = ['michel@kabisa.nl', 'rui.salgado@kabisa.nl', 'niels@kabisa.nl', 'jean@kabisa.nl']
+  spec.authors = ['Michel de Graaf', 'Rui Salgado', 'Niels Stevens', 'Jean Mertz', 'Kai-Arne Reiter']
+  spec.email = ['michel@kabisa.nl', 'rui.salgado@kabisa.nl', 'niels@kabisa.nl', 'jean@kabisa.nl', 'kreiter@seaconlogistics.com']
   spec.description = %q{The Locode gem gives you the ability to lookup UN/LOCODE codes.}
   spec.summary = %q{The Locode gem gives you the ability to lookup UN/LOCODE codes.}
   spec.homepage = 'https://github.com/kabisaict/un_locode'
@@ -18,11 +18,11 @@ Gem::Specification.new do |spec|
   spec.test_files = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.5.1'
-  spec.add_development_dependency 'rake', '~> 10.1.0'
-  spec.add_development_dependency 'rspec', '~> 2.14.1'
-  spec.add_development_dependency 'pry', '~> 0.9.12.3'
-  spec.add_development_dependency 'rspec', '~> 2.14.1'
-  spec.add_dependency 'activerecord', '~> 4.0.0'
-  spec.add_dependency 'sqlite3', '~> 1.3.8'
+  spec.add_development_dependency 'bundler', '~> 1.10.4'
+  spec.add_development_dependency 'rake', '~> 10.4.2'
+  spec.add_development_dependency 'rspec', '~> 3.3.0'
+  spec.add_development_dependency 'rspec-its', '~> 1.2.0'
+  spec.add_development_dependency 'pry', '~> 0.10.1'
+  spec.add_dependency 'activerecord', '~> 4.2.3'
+  spec.add_dependency 'sqlite3', '~> 1.3.10'
 end

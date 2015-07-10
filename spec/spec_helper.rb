@@ -2,6 +2,7 @@ ENV['ENV'] ||= 'test'
 
 require 'pry'
 require 'active_record'
+require 'rspec/its'
 require_relative '../data/db'
 
 db = UnLocode::DB.new('../tmp/test_db.sqlite')
@@ -14,7 +15,6 @@ db.reset
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
 
