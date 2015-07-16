@@ -1,6 +1,6 @@
 # Locode
 
-[![Build Status](https://travis-ci.org/kabisaict/un_locode.png)](https://travis-ci.org/kabisaict/un_locode)
+[![Build Status](https://travis-ci.org/kabisa/un_locode.svg?branch=master)](https://travis-ci.org/kabisa/un_locode)
 [![Gem Version](https://badge.fury.io/rb/un_locode.png)](http://badge.fury.io/rb/un_locode)
 
 The un_locode gem gives you the ability to lookup UN/LOCODE codes. You can read more about the UN/LOCODE specifications here: [wiki](http://en.wikipedia.org/wiki/UN/LOCODE) and [UNECE](http://www.unece.org/fileadmin/DAM/cefact/locode/Service/LocodeColumn.htm).
