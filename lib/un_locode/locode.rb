@@ -29,7 +29,7 @@ module UnLocode
     end
 
     def self.find_by_locode(locode)
-      locode = locode.gsub(' ','')
+      locode = locode.gsub(' ','').upcase
       includes(:country).where(city_code: locode[2..4])
         .where(countries: { code: locode[0..1] }).first
     end

@@ -108,6 +108,12 @@ describe UnLocode::Locode do
         its(:name) { should eql('Venlo') }
         its(:country) { should eql(country) }
       end
+      context 'with supported functions with mixed case locode' do
+        subject { UnLocode::Locode.find_by_locode(search_term) }
+        let(:search_term) { 'NlVen' }
+        its(:city_code) {should eql('VEN') }
+      end
+
     end
   end
 
