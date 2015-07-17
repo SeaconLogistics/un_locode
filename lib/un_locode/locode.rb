@@ -29,9 +29,8 @@ module UnLocode
     end
 
     def self.find_by_locode(locode)
-      locode = locode.split(' ')
-      includes(:country).where(city_code: locode.last)
-        .where(countries: { code: locode.first }).first
+      locode = locode.gsub(' ', '').upcase
+      includes(:country).find_by(city_code: locode[2..4], countries: { code: locode[0..1] })
     end
 
     def as_json options = {}
